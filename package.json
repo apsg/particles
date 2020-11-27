@@ -1,0 +1,15 @@
+{
+  "name": "particles",
+  "version": "0.1.0",
+  "description": "Vue component for nice background particles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Szymon Gackowski, PhD",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.6.12",
+    "vue-p5": "^0.8.3"
+  }
+}
