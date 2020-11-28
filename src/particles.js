@@ -11,10 +11,18 @@ export class Particle {
         this.lineDistance = 20;
     }
 
+    setDistance(distance) {
+        this.lineDistance = distance;
+
+        return this;
+    }
+
     createParticle() {
         this.sketch.noStroke();
         this.sketch.fill('rgba(200,169,169,0.8)');
         this.sketch.circle(this.x, this.y, this.r);
+
+        return this;
     }
 
     moveParticle() {
@@ -24,6 +32,8 @@ export class Particle {
             this.ySpeed *= -1;
         this.x += this.xSpeed;
         this.y += this.ySpeed;
+
+        return this;
     }
 
     joinParticles(particles) {
@@ -34,6 +44,8 @@ export class Particle {
                 this.sketch.line(this.x, this.y, element.x, element.y);
             }
         });
+
+        return this;
     }
 
     drag(px, py) {
@@ -41,6 +53,8 @@ export class Particle {
             this.x -= 0.05 * (this.x - px);
             this.y -= 0.05 * (this.y - py);
         }
+
+        return this;
     }
 }
 
@@ -58,6 +72,6 @@ export class StaticParticle extends Particle {
     }
 
     drag() {
-        // do nothing
+        return this;
     }
 }
