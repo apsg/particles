@@ -1,9 +1,11 @@
-# particles
+# Particles
 
 ## The idea
 The idea was to have animated particle style (star-like) image with gradient 
 background and ability to set static points/shapes that would interact with 
 moving particles. Also some interaction with mouse cursor would be a plus. 
+
+![demo](img=https://github.com/apsg/particles/blob/main/demo/demo.png?raw=true) 
 
 ## Lets start
 The easiest way – in my opinion – to start with a semi-scientific web/JS 
