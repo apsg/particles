@@ -146,3 +146,19 @@ After cleaning up some imports in rollup config we can finally use
 is to publish it to NPM.
 
 ## Conclusions
+
+There are already great alternatives to this package, for example [this one](https://vue-particles.netlify.app) 
+I discovered while trying to publish my own package to npm (names clash!). 
+So what's the point in creating another one? Isn't it just another trash-package
+out there in code multiverse, which makes it harder to find real useful ones?
+
+Learning! Creating this package took me two evenings. In the process: 
+- I refreshed my little rusty knowledge of p5.js,
+- learned how to create npm package containing Vue components, 
+- learned how to bundle things using rollup, 
+- published my first package to npm,
+- created this blog-like article/readme showing my whole thought process 
+(which can be useful for learning purposes, I presume).
+
+I will work on my package for fun and to use it in another personal project 
+(it gives me the ability to add images in form of static points). 
