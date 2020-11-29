@@ -64,7 +64,7 @@ export default {
 
             if (!this.image)
                 return;
-            
+
             let scale = this.image.scale ? this.image.scale : 1;
             let size = this.image.size ? this.image.size : {
                 x: Math.max(...this.image.coords.map(c => c[0])),

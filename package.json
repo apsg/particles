@@ -1,6 +1,6 @@
 {
     "name": "vue-particles-background",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Vue component for nice background vue-particles-background",
     "scripts": {
         "dev": "vue serve demo/Demo.vue",
