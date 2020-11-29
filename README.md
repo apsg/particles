@@ -23,13 +23,40 @@ https://editor.p5js.org/gacek.borowy/sketches/rPUUXzFFB
 Now to add some static points. Coordinates for image points can be created 
 quite simply: open image in some sort of image editor (like GIMP), hower over 
 each point and note the coordinates. Then note also total size of the image and 
-here you go. Also it’s nice to add some sort of scaling factor to give us more 
-control over final size of the image.
-Let’s also add some neat visual adjustments to it. 
+here you go. It is nice to add some sort of scaling factor to give us more 
+control over final size of the image. Thanks to that we can easily center the 
+image and scale it to any size we want:
+
+```javascript
+let xOffset = width/2 - scale*imageSize.x/2;
+let yOffset = height/2 - scale*imageSize.y/2;
+...
+particles.push(new StaticParticle(
+    xOffset + scale*points[0], 
+    yOffset+scale*points[1])
+);
+``` 
+Let’s also add some neat visual adjustments to it and here we have the result:
 
 https://editor.p5js.org/gacek.borowy/sketches/ncRaNVdon
 
-The final step is to add some interactivity with the mouse:
+The final step is to add some interactivity with the mouse. To accomplish it we 
+"drag" particles towards the mouse pointer in some area (let's use line 
+distance for it, since we have it) by some factor:
+
+```javascript
+...
+particles[i].drag(mouseX, mouseY);
+...
+
+drag(px, py)
+  {
+    if(dist(this.x, this.y, px, py) < 2*this.lineDistance){
+      this.x -= 0.05*(this.x - px);
+      this.y -= 0.05*(this.y - py);
+    }
+  }
+``` 
 
 https://editor.p5js.org/gacek.borowy/sketches/dKeah_0jy
 
@@ -47,7 +74,30 @@ https://www.npmjs.com/package/vue-p5
 
 First of all, let’s extract our particle classes to separate file called 
 particles.js. These classess heavily depend on p5’s methods and sketch object,
-so it has to have access to it. First iteration is finished – all functionality 
+so it has to have access to it. 
+
+```javascript
+this.particles.push((new Particle(sketch));
+...
+export class Particle {
+    constructor(sketch) {
+        this.sketch = sketch;
+...
+```
+
+Then if one has to access any p5's bilt-in function, just refer to it through passed `sketch` object:
+
+```javascript
+createParticle() {
+    this.sketch.noStroke();
+    this.sketch.fill('rgba(200,169,169,0.8)');
+    this.sketch.circle(this.x, this.y, this.r);
+
+    return this;
+}
+```
+
+First iteration is finished – all functionality 
 from demo code (web editor) is moved to working vue component.
 
 https://github.com/apsg/particles/commit/7d4277f6389b76097d3003cbd634817c1305ce7a
