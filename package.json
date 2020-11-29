@@ -1,16 +1,31 @@
 {
-    "name": "particles",
-    "version": "0.1.0",
-    "description": "Vue component for nice background particles",
-    "main": "index.js",
+    "name": "vue-particles",
+    "version": "0.3.0",
+    "description": "Vue component for nice background vue-particles",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "vue serve demo/Demo.vue"
+        "dev": "vue serve demo/Demo.vue",
+        "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+        "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-particles.umd.js",
+        "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-particles.esm.js",
+        "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-particles.min.js"
     },
     "author": "Szymon Gackowski, PhD",
     "license": "MIT",
     "dependencies": {
-        "vue": "^2.6.12",
         "vue-p5": "^0.8.3"
+    },
+    "main": "dist/vue-particles.umd.js",
+    "module": "dist/vue-particles.esm.js",
+    "unpkg": "dist/vue-particles.min.js",
+    "browser": {
+        "./sfc": "src/Particles.vue"
+    },
+    "devDependencies": {
+        "rollup": "^2.34.0",
+        "rollup-plugin-buble": "^0.19.8",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-vue": "^6.0.0",
+        "vue": "^2.6.12",
+        "vue-template-compiler": "^2.6.12"
     }
 }

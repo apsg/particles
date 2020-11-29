@@ -121,3 +121,28 @@ npm run dev
 
 Final step is to package and bundle the code for reusability and to publish it 
 for npm.  
+
+Unfortunately Vue documentation is not very helpful. It points to main direction 
+but leaves with few loose ends to fix on your own.
+
+https://vuejs.org/v2/cookbook/packaging-sfc-for-npm.html
+
+The biggest one is to be even able to compile it we have to add `VuePlugin` to 
+`rollup.config.js`
+
+```javascript
+import VuePlugin from "rollup-plugin-vue";
+...
+    plugins: [
+        VuePlugin(),
+        ... 
+```
+
+Note that the [order of plugins matter](https://github.com/vuejs/rollup-plugin-vue/issues/231) 
+and `VuePlugin` should be first one.
+
+After cleaning up some imports in rollup config we can finally use 
+`npm run build` to create 3 versions of bundled code. The final step
+is to publish it to NPM.
+
+## Conclusions
