@@ -1,5 +1,7 @@
 # Particles
 
+This package is [available on npm](https://www.npmjs.com/package/vue-particles-background).
+
 ## The idea
 The idea was to have animated particle style (star-like) image with gradient 
 background and ability to set static points/shapes that would interact with 
