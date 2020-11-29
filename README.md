@@ -64,10 +64,7 @@ This outcome is quite satisfying, we can now start extracting it to more
 structured, confined and configurable code.
 
 ## Move to components
-Let’s create a new Vue 2 component following this tutorial:
-
-https://www.telerik.com/blogs/vuejs-how-to-build-your-first-package-publish-it-on-npm
-
+Let’s create a new Vue 2 component for our particles.
 To handle P5.js inside of vue one can use this package:
 
 https://www.npmjs.com/package/vue-p5
@@ -102,10 +99,25 @@ from demo code (web editor) is moved to working vue component.
 
 https://github.com/apsg/particles/commit/7d4277f6389b76097d3003cbd634817c1305ce7a
 
-Now it’s time to add a little bit of configurability and smart behaviour to it. 
-First of all, it should allow to use it as an wrapper, background, for 
+Now it’s time to add a bit of configurability and smart behaviour to it. 
+First of all, it should allow to use it as a wrapper, background, for 
 anything passed to it into <slot>. Secondly, parameters like gradient color, 
 number of particles, line distance etc should be configurable through props. 
 Also let’s add some fluent syntax to Particle class.
 
 https://github.com/apsg/particles/commit/f24243f9785ae69d99ae0137da5767b22f44f794
+
+**Note:** To run the demo at this point just serve the project using Vue CLI:
+
+```shell script
+vue serve demo/Demo.vue
+```
+or
+```shell script
+npm run dev
+```
+
+## Package it
+
+Final step is to package and bundle the code for reusability and to publish it 
+for npm.  
